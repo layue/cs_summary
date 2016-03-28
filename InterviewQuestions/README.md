@@ -1,4 +1,4 @@
-###bloomberg:
+### bloomberg:
 1. Find the missing integer in an array of integers.  (sum minus)
 2. Given an array of numbers, find the 2 two largest numbers in the array (hashmap)
 3. How it's implemented a HashMap?  
@@ -12,7 +12,7 @@
 
 
 
-###Microsoft:
+### Microsoft:
 1. Design an algorithm for parsing code to check whether all the brackets and parentheses match.
 2. Given an array, find the value which is larger than all the values with smaller indexes, and smaller than all the values with larger indexes. (2-pass DP)
 3. Describe recursion to a 5 year old child
@@ -23,19 +23,52 @@
 三面是写个求两个字符串，最长公共子串的算法
 
 
-###Keep: iOS developer
-1. linked file keyword
+### Keep: iOS developer
+1. @property + key words. Usage, difference
+	2. Atomic: atomic(保证setter／getter的原子性，为操作执行期间添加互斥锁，保证多线程情况下对变量的读写同步), nonatomic（不需考虑多线程情况，相对于 atomic 效率更高）。By default, an Objective-C property is atomic。[http://my.oschina.net/linxiaoxi1993/blog/381332](http://my.oschina.net/linxiaoxi1993/blog/381332)
+	3. Read／Write Authorisation：readwrite（default），readonly
+	4. Memory management. ARC（Automatic Reference Count):
+		[http://www.lvtao.net/ios/504.html](http://www.lvtao.net/ios/504.html)
+		Official document(_Long but highly recommend to read_): [https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
+		5. strong（default），weak：When use strong(keep the object alive), should be carful about **Strong Reference Cycles**(Lead to memory leak)
+![](strongreferencecycle2.png)
+	@property (weak) id delegate;
+	NSObject * __weak weakVariable;
+![](strongreferencecycle4.png)
+- A weak reference is automatically set to nil when its object is deallocated. 
+		if (self.someWeakProperty) { //Make sure a weak property is not nil before using it.
+		        [someObject doSomethingImportantWith:self.someWeakProperty];
+		    }
+	6. assign, retain:
+		- retain: similar with strong
+		- assign: similar with weak, but will not automatically set to nil
+		7. copy: In some circumstances, an object may wish to keep its own copy of any objects that are set for its properties.
+			@property NSString *firstName;
+			NSMutableString *nameString = [NSMutableString stringWithString:@"John"];
+			self.badgeView.firstName = nameString;
+			[nameString appendString:@"ny"]; //firstName will change,
+			@property (copy) NSString *firstName;// So should declear with (copy)
+	7. Accessor Method：
+			@property (getter=isFinished) BOOL finished;
+		- Usually do not recommend rewrite setter method.
+		- In general, you should use accessor methods or dot syntax for property access even if you’re accessing an object’s properties from within its own implementation, in which case you should use self. The **exception** to this rule is when writing **initialisation, deallocation or custom accessor methods**.
+				_propertyName = xx; //System default set name
+				@synthesize propertyName = yourOwnName; //If you want to change
+				@synthesize propertyName; //The instance variable will bear the same name as the property, without underscore
+	8. Not in common use: nonnull,null\_resettable,nullable
+
+1. Compile process：
+	2. Pre-process
 2. run time/run loop
 3. http state number 2xx, 4xx, 5xx
 4. http get/post difference
 5. git workflow
 6. git command
-7. @property + key words. usage, difference
-8. MVC -> MVVM
+
+8. MVC -\> MVVM
 9. third party library
 10. favorite website / book / blog, your note and review
 11. design pattern you’ve used
-
 
 
 
