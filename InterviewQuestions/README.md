@@ -1,7 +1,9 @@
 ### bloomberg:
 1. Find the missing integer in an array of integers.  (sum minus)
 2. Given an array of numbers, find the 2 two largest numbers in the array (hashmap)
-3. How it's implemented a HashMap?  
+3. How HashMap implemented in Java?
+http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html
+
 4. The two-sum problem (hashmap)
 5. Remove duplicates from an unsorted singly linked list.
 6. Languages: Different between Java and C++, garbage collector in java (how it work), static vs dynamic memory allocation - Data structures: Linked lists, queues, stacks, heap, trees - OOP: polymorphism, design patterns that I used before - Algorithms: Sorting algorithms I know and there complexity, how to search for a number in an array (sorted and not sorted cases) - Coding question: reverse a singly linked list  

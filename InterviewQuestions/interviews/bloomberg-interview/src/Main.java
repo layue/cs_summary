@@ -49,6 +49,23 @@ public class Main {
         return result;
     }
 //    Remove duplicates from an unsorted singly linked list.
+    public static void removeDuplicate(ListNode head) {
+        if(head == null || head.next == null) {
+            return;
+        }
+        
+        HashMap<Integer, ListNode> map = new HashMap();
+        ListNode now = head;
+        map.put(now.val, now);
+        while(now.next != null) {
+            if(map.containsKey(now.next.val)) {
+                now.next = now.next.next;
+            } else {
+                map.put(now.next.val, now);
+                now = now.next;
+            }
+        }
+    }
 
 
 //  Coding question: reverse a singly linked list
